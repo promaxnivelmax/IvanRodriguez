@@ -327,8 +327,11 @@ body.ready .sunpic{animation:sunIn 1.4s var(--bounce) .5s forwards}
 .tab.on{background:var(--c);color:var(--night)}
 .tab .ct{font-size:12px;opacity:.85;margin-left:6px}
 .panel{padding:30px;min-height:240px}
-.chips{display:flex;flex-wrap:wrap;gap:10px}
-.chip{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,241,214,.16);font-weight:700;font-size:14px;opacity:0;transform:scale(.3);animation:chipIn .5s var(--bounce) forwards;animation-delay:calc(var(--i) * 35ms);transition:background .25s,color .25s}
+.chips{display:flex;flex-direction:column;gap:28px}
+.chips-row{display:flex;flex-wrap:wrap;gap:10px}
+.chip-group h5{font-family:var(--display);font-weight:400;font-size:24px;color:var(--c);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.chip-group h5 span{font-family:var(--body);font-weight:900;font-size:12px;background:var(--c);color:var(--night);padding:2px 10px;border-radius:999px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,241,214,.16);font-weight:700;font-size:14px;opacity:0;transform:scale(.3);animation:chipIn .5s var(--bounce) forwards;animation-delay:calc(var(--i) * 18ms);transition:background .25s,color .25s}
 .chip em{font-style:normal;font-size:11px;font-weight:900;padding:2px 8px;border-radius:999px;background:var(--c);color:var(--night);white-space:nowrap}
 .chip.dip{border:2px solid var(--sun)}
 .chip:hover{background:var(--c);color:var(--night)}
@@ -728,7 +731,7 @@ body.ready .wa a:nth-child(2){animation-delay:1.45s}
     </div>
 
     <div class="tabs rv" data-fx="up" id="tabs"></div>
-    <div class="hcard panel rv" data-fx="zoom"><div class="chips" id="chips"></div><p class="panel-note">Los diplomados van resaltados con borde amarillo.</p></div>
+    <div class="hcard panel rv" data-fx="zoom"><div class="chips" id="chips"></div><p class="panel-note">Los diplomados van resaltados con borde amarillo. Usa los botones de arriba para filtrar por área.</p></div>
 
     <div class="tools rv" data-fx="zoomout">
       <h3>Mi caja de herramientas</h3>
@@ -1027,13 +1030,15 @@ body.ready .wa a:nth-child(2){animation-delay:1.45s}
     ]]
   ];
   const tabs = $('#tabs'), chips = $('#chips');
+  const chip = ([n, t, d], i) => `<span class="chip${d ? ' dip' : ''}" style="--i:${i}">${n}${t ? ` <em>${t}</em>` : ''}</span>`;
   function showCat(k) {
-    const [, col, items] = CURSOS[k];
     $$('.tab', tabs).forEach((t, i) => t.classList.toggle('on', i === k));
-    chips.style.setProperty('--c', col);
-    chips.innerHTML = items.map(([n, t, d], i) => `<span class="chip${d ? ' dip' : ''}" style="--i:${i}">${n}${t ? ` <em>${t}</em>` : ''}</span>`).join('');
+    const list = k === 0 ? CURSOS : [CURSOS[k - 1]];
+    let j = 0;
+    chips.innerHTML = list.map(([n, col, items]) => `<div class="chip-group" style="--c:${col}"><h5>${n} <span>${items.length}</span></h5><div class="chips-row">${items.map(it => chip(it, j++)).join('')}</div></div>`).join('');
   }
-  tabs.innerHTML = CURSOS.map(([n, col, items], i) => `<button class="tab" style="--c:${col}">${n}<span class="ct">${items.length}</span></button>`).join('');
+  const total = CURSOS.reduce((a, c) => a + c[2].length, 0);
+  tabs.innerHTML = `<button class="tab" style="--c:#fff1d6">Todos<span class="ct">${total}</span></button>` + CURSOS.map(([n, col, items]) => `<button class="tab" style="--c:${col}">${n}<span class="ct">${items.length}</span></button>`).join('');
   $$('.tab', tabs).forEach((t, i) => t.addEventListener('click', () => showCat(i)));
   showCat(0);
   const TOOLS = ['Word', 'Excel', 'Access', 'Publisher', 'PowerPoint', 'Corel Draw', 'Illustrator', 'Edición de video', 'Visual Studio', 'Sublime Text', 'HTML', 'CSS', 'PHP', 'SQL', 'JavaScript', 'MySQL', 'Cloud Computing', 'E-commerce', 'Analítica de datos', 'SAP'];
