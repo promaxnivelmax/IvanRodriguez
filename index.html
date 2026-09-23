@@ -1083,9 +1083,9 @@ body.ready .wa a:nth-child(2){animation-delay:1.45s}
   });
 
   /* ---------- whoosh ---------- */
-  const wh = $('#whoosh');
   function whoosh() {
-    if (reduce) return;
+    const wh = document.getElementById('whoosh');
+    if (reduce || !wh) return;
     for (let i = 0; i < 12; i++) {
       const l = document.createElement('i');
       l.style.top = Math.random() * 100 + '%'; l.style.animationDelay = Math.random() * .2 + 's';
