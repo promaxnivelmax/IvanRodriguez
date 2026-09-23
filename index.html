@@ -142,7 +142,7 @@ body.ready .name .ch{animation:chPop .8s var(--bounce) forwards;animation-delay:
 .fullname{font-weight:800;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .role{margin-top:22px;font-size:clamp(18px,2.1vw,24px);font-weight:800;display:flex;flex-wrap:wrap;gap:8px}
 .role span{padding:6px 14px;border-radius:var(--hand);border:2px solid currentColor}
-.role span:nth-child(1){color:var(--sun)}.role span:nth-child(2){color:var(--pink)}.role span:nth-child(3){color:var(--teal)}
+.role span:nth-child(1){color:var(--sun)}.role span:nth-child(2){color:var(--pink)}.role span:nth-child(3){color:var(--teal)}.role span:nth-child(4){color:var(--orange)}
 .hero-info{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
 .pill{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font-weight:600;font-size:14px;transition:transform .35s var(--bounce),background .3s,color .3s}
 .pill:hover{transform:translateY(-4px) rotate(-2deg);background:var(--sun);color:var(--night)}
@@ -250,7 +250,7 @@ body.ready .sunpic{animation:sunIn 1.4s var(--bounce) .5s forwards}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .stat{padding:24px 18px;text-align:center;border-radius:50% 45% 52% 48%/48% 52% 45% 50%;aspect-ratio:1;display:flex;flex-direction:column;justify-content:center;align-items:center;color:var(--night);transition:transform .45s var(--bounce)}
 .stat:hover{transform:scale(1.1) rotate(-6deg)!important}
-.stat b{font-family:var(--display);font-size:clamp(40px,4.4vw,60px);line-height:1}
+.stat b{font-family:var(--display);font-size:clamp(34px,4vw,56px);line-height:1}
 .stat small{font-weight:900;font-size:12px;line-height:1.3;margin-top:6px;text-transform:uppercase}
 .stat:nth-child(1){background:var(--sun)}
 .stat:nth-child(2){background:var(--pink)}
@@ -312,6 +312,39 @@ body.ready .sunpic{animation:sunIn 1.4s var(--bounce) .5s forwards}
 @keyframes blink{50%{opacity:.35}}
 .edu:hover{transform:scale(1.05) rotate(-2deg)!important;animation-play-state:paused}
 
+/* ================= CURSOS Y COMPETENCIAS ================= */
+.comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:60px}
+.medal{padding:28px 24px;display:flex;gap:22px;align-items:center}
+.medal:hover{transform:translateY(-6px) rotate(-1deg)}
+.seal{flex:none;width:86px;height:86px;border-radius:50%;background:var(--c);display:grid;place-items:center;position:relative;box-shadow:0 0 0 6px var(--card),0 0 0 9px var(--c)}
+.seal::after{content:"";position:absolute;inset:-18px;border-radius:50%;border:3px dashed var(--c);animation:spin 12s linear infinite}
+.seal b{font-family:var(--display);font-size:13px;line-height:1.05;text-align:center;color:var(--night);font-weight:400}
+.medal h4{font-weight:900;font-size:16px;line-height:1.3}
+.medal small{display:block;color:var(--muted);font-size:13px;margin-top:6px}
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.tab{font-family:var(--body);font-weight:900;font-size:15px;padding:12px 20px;border-radius:var(--hand);border:2.5px solid var(--c);color:var(--c);background:transparent;cursor:none;transition:transform .3s var(--bounce),background .3s,color .3s}
+.tab:hover{transform:translateY(-3px) rotate(-2deg)}
+.tab.on{background:var(--c);color:var(--night)}
+.tab .ct{font-size:12px;opacity:.85;margin-left:6px}
+.panel{padding:30px;min-height:240px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,241,214,.16);font-weight:700;font-size:14px;opacity:0;transform:scale(.3);animation:chipIn .5s var(--bounce) forwards;animation-delay:calc(var(--i) * 35ms);transition:background .25s,color .25s}
+.chip em{font-style:normal;font-size:11px;font-weight:900;padding:2px 8px;border-radius:999px;background:var(--c);color:var(--night);white-space:nowrap}
+.chip.dip{border:2px solid var(--sun)}
+.chip:hover{background:var(--c);color:var(--night)}
+.chip:hover em{background:var(--night);color:var(--c)}
+@keyframes chipIn{to{opacity:1;transform:none}}
+.panel-note{margin-top:18px;color:var(--muted);font-size:13px}
+.tools{margin-top:70px;text-align:center}
+.tools h3{font-family:var(--brush);font-size:32px;color:var(--sun);margin-bottom:20px;font-weight:400}
+.tool-cloud{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.tool{font-family:var(--display);font-size:clamp(15px,1.7vw,21px);padding:9px 18px;border-radius:var(--hand);background:var(--card2);border:2px solid var(--c);color:var(--c);animation:toolFloat 4s ease-in-out infinite;animation-delay:var(--d)}
+.tool:hover{background:var(--c);color:var(--night)}
+@keyframes toolFloat{50%{transform:translateY(-8px) rotate(-2deg)}}
+.docs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:44px}
+.doc{font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px;background:rgba(70,179,92,.14);color:#8fe39f;border:1px solid rgba(70,179,92,.4)}
+@media (max-width:1000px){.comp-grid{grid-template-columns:1fr}}
+
 /* ================= CONTACTO ================= */
 .contact-top{display:grid;grid-template-columns:1.3fr .7fr;gap:30px;align-items:center;margin-bottom:50px}
 .pollera{width:min(300px,70vw);justify-self:center;position:relative}
@@ -321,7 +354,7 @@ body.ready .sunpic{animation:sunIn 1.4s var(--bounce) .5s forwards}
 .pollera .note{position:absolute;font-family:var(--display);font-size:30px;animation:noteUp 3s ease-out infinite;opacity:0}
 @keyframes noteUp{0%{opacity:0;transform:translateY(20px)}20%{opacity:1}100%{opacity:0;transform:translateY(-90px) rotate(25deg)}}
 .pollera .cap{text-align:center;font-family:var(--brush);font-size:26px;color:var(--red);margin-top:6px}
-.c-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.c-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
 .c-item{padding:28px 24px;min-height:180px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
 .c-item:hover{transform:translateY(-8px) rotate(-1.5deg)}
 .c-item .ic{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--c);color:var(--night);transition:transform .5s var(--bounce)}
@@ -492,6 +525,7 @@ body.ready .wa a:nth-child(2){animation-delay:1.45s}
   <a href="#habilidades">Habilidades</a>
   <a href="#trayectoria">Experiencia</a>
   <a href="#estudios">Estudios</a>
+  <a href="#cursos">Cursos</a>
   <a href="#contacto">Contacto</a>
 </nav>
 
@@ -511,10 +545,11 @@ body.ready .wa a:nth-child(2){animation-delay:1.45s}
         <span class="row" data-t="Rodríguez"></span>
       </h1>
       <div class="fullname rv" data-fx="up" style="--dl:1100ms">Iván Gerardo Rodríguez Bustamante</div>
-      <div class="role rv" data-fx="up" style="--dl:1200ms"><span>Productor Multimedia</span><span>Gestor</span><span>Administrativo</span></div>
+      <div class="role rv" data-fx="up" style="--dl:1200ms"><span>Productor Multimedia</span><span>Desarrollo de Software</span><span>Gestión Pública</span><span>Auxiliar Administrativo</span></div>
       <div class="hero-info rv" data-fx="up" style="--dl:1300ms">
         <span class="pill">☀ Barrancabermeja, Santander · <span class="temp" id="temp">38°C</span></span>
         <a class="pill" href="tel:3052319414">📞 305 231 9414</a>
+        <a class="pill" href="tel:3052245939">📱 305 224 5939</a>
         <a class="pill" href="mailto:ivan.rodriguezbu@gmail.com">✉ ivan.rodriguezbu@gmail.com</a>
       </div>
       <div class="cta rv" data-fx="up" style="--dl:1400ms">
@@ -571,13 +606,13 @@ body.ready .wa a:nth-child(2){animation-delay:1.45s}
     <div class="about-grid">
       <div class="hcard quote rv" data-fx="zoom">
         <span class="qm">“</span>
-        Profesional con amplia experiencia en manejo de herramientas de oficina y desarrollo tecnológico. Me especializo en la <strong>gestión administrativa eficiente</strong>, automatización de procesos documentales y apoyo logístico institucional. Mi enfoque combina el <strong>rigor administrativo con la innovación digital</strong> para optimizar el servicio ciudadano y la <strong>productividad organizacional</strong>.
+        Profesional con amplia experiencia en manejo de herramientas de oficina y desarrollo tecnológico. Me especializo en la <strong>gestión administrativa eficiente</strong>, automatización de procesos documentales y apoyo logístico institucional. Mi enfoque combina el <strong>rigor administrativo con la innovación digital</strong> para optimizar el servicio ciudadano y la <strong>productividad organizacional</strong>.<br><br>Manejo Word, Excel, Access, Publisher, PowerPoint, Corel Draw, Illustrator y edición de video; programo en Visual Studio y Sublime con <strong>HTML, CSS, PHP, SQL y JavaScript</strong>, y tengo bases en Cloud Computing, E-commerce, analítica de datos y navegación SAP.
         <span class="sig">— Iván, desde Barranca</span>
       </div>
       <div class="stats">
-        <div class="stat rv" data-fx="pop" style="--r:-4deg"><b data-count="6">0</b><small>títulos y<br>estudios</small></div>
+        <div class="stat rv" data-fx="pop" style="--r:-4deg"><b data-count="50" data-suffix="+">0</b><small>cursos y<br>diplomados</small></div>
         <div class="stat rv" data-fx="pop" style="--r:3deg"><b data-count="4">0</b><small>experiencias<br>laborales</small></div>
-        <div class="stat rv" data-fx="pop" style="--r:5deg"><b data-count="98" data-suffix="%">0</b><small>Excel<br>avanzado</small></div>
+        <div class="stat rv" data-fx="pop" style="--r:5deg"><b data-count="2000" data-suffix="+">0</b><small>horas de<br>formación</small></div>
         <div class="stat rv" data-fx="pop" style="--r:-3deg"><b data-count="38" data-suffix="°">0</b><small>de puro<br>calor</small></div>
       </div>
     </div>
@@ -623,8 +658,8 @@ body.ready .wa a:nth-child(2){animation-delay:1.45s}
           <span class="new">¡Lo más reciente!</span>
           <span class="when">05 may 2023 — 05 nov 2023</span>
           <h3>Tecnólogo en Producción Multimedia</h3>
-          <span class="org">Trámites y Servicios Laura</span>
-          <p>Realización de encuestas, gestión de contenidos para redes sociales, elaboración de informes y herramientas de edición de video para promoción de servicios.</p>
+          <span class="org">Trámites y Servicios Laura · Etapa productiva SENA</span>
+          <p>Encuestas y entrevistas de satisfacción a clientes para proponer mejoras, creación de contenido para Instagram y Facebook, elaboración de informes y edición de video para la promoción de servicios.</p>
         </div>
       </div>
       <div class="job rv" data-fx="right">
@@ -632,7 +667,7 @@ body.ready .wa a:nth-child(2){animation-delay:1.45s}
           <span class="when">06 dic 2022 — 05 ene 2023</span>
           <h3>Auxiliar Administrativo</h3>
           <span class="org">Alcaldía de Barrancabermeja</span>
-          <p>Apoyo a la gestión administrativa en la Secretaría Jurídica y acompañamiento en procesos de convivencia ciudadana.</p>
+          <p>Prestación de servicios de apoyo a la gestión en los procesos administrativos del Centro de Convivencia Ciudadana, adscrito a la Secretaría del Interior.</p>
         </div>
       </div>
       <div class="job rv" data-fx="left">
@@ -640,15 +675,15 @@ body.ready .wa a:nth-child(2){animation-delay:1.45s}
           <span class="when">27 sep 2022 — 26 dic 2022</span>
           <h3>Apoyo Logístico</h3>
           <span class="org">Instituto INDERBA</span>
-          <p>Prestación de servicios de apoyo a la gestión para acompañamiento logístico en diferentes eventos deportivos y recreativos.</p>
+          <p>Apoyo a la gestión con acompañamiento logístico en los diferentes eventos deportivos y recreativos del instituto, en el proyecto de fomento y desarrollo deportivo del Distrito.</p>
         </div>
       </div>
       <div class="job rv" data-fx="right">
         <div class="hcard">
           <span class="when">24 nov 2016 — 18 jul 2018</span>
-          <h3>Auxiliar Administrativo</h3>
-          <span class="org">Tonner &amp; Suministros</span>
-          <p>Elaboración de documentos, manejo de bases de datos, atención al cliente y soporte logístico en actividades inherentes al cargo.</p>
+          <h3>Asistente Administrativo</h3>
+          <span class="org">Tonner &amp; Suministros · Contrato indefinido</span>
+          <p>Elaboración de documentos, oficios y cuadros en hojas de cálculo, manejo de aplicativos web, diligenciamiento de registros y apoyo logístico en las actividades de la empresa.</p>
         </div>
       </div>
     </div>
@@ -666,11 +701,45 @@ body.ready .wa a:nth-child(2){animation-delay:1.45s}
     <div class="flags" aria-hidden="true"><svg id="flagsSvg" viewBox="0 0 1180 70" preserveAspectRatio="none"></svg></div>
     <div class="edu-grid">
       <div class="hcard edu rv" data-fx="drop" style="--c:var(--pink);--hd:-.5s"><i class="pin"></i><span class="live">● EN CURSO</span><span class="yr">2025</span><h3>Tecnología en Contabilidad Financiera</h3><div class="inst">Unidades Tecnológicas de Santander</div></div>
-      <div class="hcard edu rv" data-fx="drop" style="--c:var(--teal);--hd:-1.4s"><i class="pin"></i><span class="yr">2025</span><h3>Tecnología en Análisis y Desarrollo de Software</h3><div class="inst">SENA · Finalizado</div></div>
-      <div class="hcard edu rv" data-fx="drop" style="--c:var(--sun);--hd:-2.2s"><i class="pin"></i><span class="yr">2023</span><h3>Tecnología en Producción Multimedia</h3><div class="inst">SENA</div></div>
-      <div class="hcard edu rv" data-fx="drop" style="--c:var(--orange);--hd:-.9s"><i class="pin"></i><span class="yr">2021</span><h3>Técnico en Asistencia Administrativa</h3><div class="inst">Instituto de Formación Perspectiva</div></div>
-      <div class="hcard edu rv" data-fx="drop" style="--c:var(--green);--hd:-3s"><i class="pin"></i><span class="yr">2019</span><h3>Técnico en Inglés (Nivel Intermedio)</h3><div class="inst">Praxis English Institute</div></div>
+      <div class="hcard edu rv" data-fx="drop" style="--c:var(--teal);--hd:-1.4s"><i class="pin"></i><span class="yr">2025</span><h3>Tecnología en Análisis y Desarrollo de Software</h3><div class="inst">SENA</div></div>
+      <div class="hcard edu rv" data-fx="drop" style="--c:var(--sun);--hd:-2.2s"><i class="pin"></i><span class="yr">2023</span><h3>Tecnología en Producción Multimedia</h3><div class="inst">SENA · Inscripción profesional COPNIA</div></div>
+      <div class="hcard edu rv" data-fx="drop" style="--c:var(--orange);--hd:-.9s"><i class="pin"></i><span class="yr">2021</span><h3>Técnico Laboral Auxiliar Administrativo</h3><div class="inst">Instituto Técnico Experticia · 864 horas</div></div>
+      <div class="hcard edu rv" data-fx="drop" style="--c:var(--green);--hd:-3s"><i class="pin"></i><span class="yr">2019</span><h3>Técnico en Conocimientos Académicos en Inglés · B2</h3><div class="inst">Praxis English Institute</div></div>
       <div class="hcard edu rv" data-fx="drop" style="--c:var(--red);--hd:-1.8s"><i class="pin"></i><span class="yr">2015</span><h3>Bachiller Académico</h3><div class="inst">Institución Educativa</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CURSOS Y COMPETENCIAS ================= -->
+<section class="sec" id="cursos">
+  <span class="doodle" style="top:8%;right:6%;color:var(--teal);font-size:34px">✦</span>
+  <div class="wrap">
+    <div class="s-head rv" data-fx="left">
+      <span class="s-kicker"><span class="n">05</span> Formación complementaria</span>
+      <h2 class="s-title"><span class="c1">+50 cursos</span> <span class="c4">que</span> <span class="c3">suman</span></h2>
+      <svg class="squiggle" viewBox="0 0 340 22"><path d="M4 12 Q20 2 36 12 T68 12 T100 12 T132 12 T164 12 T196 12 T228 12 T260 12 T292 12 T324 12"/></svg>
+      <p class="s-sub">Más de 2.000 horas certificadas por el SENA, la ESAP y Función Pública.</p>
+    </div>
+
+    <div class="comp-grid">
+      <div class="hcard medal rv" data-fx="pop" style="--c:var(--sun);--r:-1deg"><div class="seal"><b>NIVEL<br>AVANZADO</b></div><div><h4>Atender clientes de acuerdo con procedimiento de servicio y normativa</h4><small>Competencia laboral certificada · SENA 2025</small></div></div>
+      <div class="hcard medal rv" data-fx="pop" style="--c:var(--pink);--r:1deg"><div class="seal"><b>NIVEL<br>AVANZADO</b></div><div><h4>Digitar textos de acuerdo con metodologías y guía técnica</h4><small>Competencia laboral certificada · SENA 2025</small></div></div>
+      <div class="hcard medal rv" data-fx="pop" style="--c:var(--teal);--r:-1deg"><div class="seal"><b>NIVEL<br>AVANZADO</b></div><div><h4>Registrar información de acuerdo con normativa y procedimiento técnico</h4><small>Gestión administrativa · SENA 2025</small></div></div>
+    </div>
+
+    <div class="tabs rv" data-fx="up" id="tabs"></div>
+    <div class="hcard panel rv" data-fx="zoom"><div class="chips" id="chips"></div><p class="panel-note">Los diplomados van resaltados con borde amarillo.</p></div>
+
+    <div class="tools rv" data-fx="zoomout">
+      <h3>Mi caja de herramientas</h3>
+      <div class="tool-cloud" id="tools"></div>
+    </div>
+
+    <div class="docs rv" data-fx="up">
+      <span class="doc">✔ Inscripción profesional COPNIA (2026)</span>
+      <span class="doc">✔ Licencia de conducción vigente</span>
+      <span class="doc">✔ Sin antecedentes judiciales, fiscales ni disciplinarios (2025)</span>
+      <span class="doc">✔ Referencias laborales y personales a solicitud</span>
     </div>
   </div>
 </section>
@@ -680,7 +749,7 @@ body.ready .wa a:nth-child(2){animation-delay:1.45s}
   <div class="wrap">
     <div class="contact-top">
       <div class="s-head rv" data-fx="left" style="margin-bottom:0">
-        <span class="s-kicker"><span class="n">05</span> Contacto</span>
+        <span class="s-kicker"><span class="n">06</span> Contacto</span>
         <h2 class="s-title"><span class="c1">¡Hablemos,</span><br><span class="c3">mi llave!</span></h2>
         <svg class="squiggle" viewBox="0 0 340 22"><path d="M4 12 Q20 2 36 12 T68 12 T100 12 T132 12 T164 12 T196 12 T228 12 T260 12 T292 12 T324 12"/></svg>
         <p class="s-sub">¿Tienes una vacante o un proyecto? Escríbeme y cuadramos, que aquí se trabaja con toda la energía del sol.</p>
@@ -710,6 +779,10 @@ body.ready .wa a:nth-child(2){animation-delay:1.45s}
       <a class="hcard c-item rv" data-fx="up" style="--c:var(--sun)" href="tel:3052319414">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
         <div><div class="k">Llámame</div><div class="v">305 231 9414</div></div>
+      </a>
+      <a class="hcard c-item rv" data-fx="up" style="--c:var(--orange)" href="tel:3052245939">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></span>
+        <div><div class="k">Otro celular</div><div class="v">305 224 5939</div></div>
       </a>
       <a class="hcard c-item rv" data-fx="up" style="--c:var(--pink)" href="mailto:ivan.rodriguezbu@gmail.com">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 7-10 6L2 7"/></svg></span>
@@ -895,6 +968,76 @@ body.ready .wa a:nth-child(2){animation-delay:1.45s}
   const fill = (el, arr) => { const t = arr.map(w => `<span>${w}</span>`).join(''); el.innerHTML = t + t; };
   fill($('#tape1'), ['Bella Hija del Sol', 'Río Magdalena', 'Bocachico frito', 'Cristo Petrolero', '38° a la sombra', 'Fiestas del Sol', 'Barrancabermeja']);
   fill($('#tape2'), ['La Pollera Colorada', 'Iguanas en el parque', 'Refinería', 'Malecón', 'Santander', 'Chigüiros en la orilla', 'Cumbia', 'Calor sabroso']);
+
+  /* ---------- cursos por categoría ---------- */
+  const CURSOS = [
+    ['Gestión pública', '#ffc21a', [
+      ['Construcción de Paz y Derechos Humanos', 'Diplomado · 120 h · ESAP', 1],
+      ['Políticas Públicas', 'Diplomado · 100 h · ESAP', 1],
+      ['Proyectos de Desarrollo', 'Diplomado · 100 h · ESAP', 1],
+      ['Modelo Integrado de Planeación y Gestión (MIPG)', 'Diplomado · 80 h · ESAP', 1],
+      ['Sistema de Control Interno MECI', 'Diplomado · 80 h · ESAP', 1],
+      ['Contratación Estatal', 'Diplomado · 80 h · ESAP', 1],
+      ['Procesos de Contratación en Línea con el Estado', 'Diplomado · 80 h · ESAP', 1],
+      ['Gerencia de Proyectos bajo estándares del PMI', '60 h · ESAP'],
+      ['Veedurías Ciudadanas con enfoque en derechos humanos', '60 h · Función Pública'],
+      ['Marcos de referencia y clasificación documental', '40 h · ESAP'],
+      ['Órganos de Control', '20 h · ESAP'],
+      ['Control Social y Veeduría Ciudadana', '20 h · ESAP'],
+      ['Control social a la gestión de riesgos de desastres', '20 h · ESAP'],
+      ['Diálogo social y Sistema de Control Interno', '20 h · ESAP'],
+      ['Ediles electos 2024 – 2027', '12 h · ESAP'],
+      ['Formulación y gestión de proyectos para Acción Comunal', 'Seminario · ESAP'],
+      ['Integridad, transparencia y lucha contra la corrupción', ''],
+      ['Inducción a los gerentes públicos', ''],
+      ['Inducción para la alta gerencia del Estado', ''],
+      ['Control político y planes de desarrollo', ''],
+      ['Plan de desarrollo territorial', ''],
+      ['Finanzas públicas', ''],
+      ['Gobernanza y gestión del patrimonio cultural', '']
+    ]],
+    ['Tecnología', '#17a9a3', [
+      ['Construcción de bases de datos con MySQL', '48 h · SENA'],
+      ['Desarrollo web con PHP', '40 h · SENA'],
+      ['Bases de datos: generalidades y sistemas de gestión', '40 h · SENA'],
+      ['Programación básica', 'Platzi'],
+      ['Metodología de la programación de sistemas informáticos', ''],
+      ['Arquitectura de computadores', ''],
+      ['Desarrollo móvil con App Inventor', ''],
+      ['HTML', 'SoloLearn'], ['CSS', 'SoloLearn'], ['JavaScript', 'SoloLearn'], ['PHP', 'SoloLearn'], ['SQL', 'SoloLearn']
+    ]],
+    ['Ofimática y diseño', '#e0358f', [
+      ['Excel y Access para aplicaciones administrativas', '40 h · SENA'],
+      ['Word avanzado', '40 h · SENA'],
+      ['Excel intermedio', '40 h · SENA'],
+      ['PowerPoint para presentaciones profesionales', '48 h · SENA'],
+      ['Word para el procesamiento de textos', '48 h · SENA'],
+      ['Microsoft Office: Word', '40 h · SENA'],
+      ['Hojas de cálculo Excel', '40 h · SENA'],
+      ['Word básico', '40 h · SENA'],
+      ['Corel Draw: diseño vectorial', '40 h · SENA'],
+      ['Corel Draw: textos y organización de objetos', 'SENA']
+    ]],
+    ['Inglés y servicio', '#46b35c', [
+      ['English Does Work · Levels 2, 3, 4, 5 y 6', '5 × 48 h · SENA'],
+      ['English Dot Works · Beginner y 1', '2 × 60 h · SENA'],
+      ['Atención al cliente por medios tecnológicos', '48 h · SENA'],
+      ['Administración de recursos humanos', '40 h · SENA'],
+      ['Formulación de proyectos en mi profesión', '40 h · SENA']
+    ]]
+  ];
+  const tabs = $('#tabs'), chips = $('#chips');
+  function showCat(k) {
+    const [, col, items] = CURSOS[k];
+    $$('.tab', tabs).forEach((t, i) => t.classList.toggle('on', i === k));
+    chips.style.setProperty('--c', col);
+    chips.innerHTML = items.map(([n, t, d], i) => `<span class="chip${d ? ' dip' : ''}" style="--i:${i}">${n}${t ? ` <em>${t}</em>` : ''}</span>`).join('');
+  }
+  tabs.innerHTML = CURSOS.map(([n, col, items], i) => `<button class="tab" style="--c:${col}">${n}<span class="ct">${items.length}</span></button>`).join('');
+  $$('.tab', tabs).forEach((t, i) => t.addEventListener('click', () => showCat(i)));
+  showCat(0);
+  const TOOLS = ['Word', 'Excel', 'Access', 'Publisher', 'PowerPoint', 'Corel Draw', 'Illustrator', 'Edición de video', 'Visual Studio', 'Sublime Text', 'HTML', 'CSS', 'PHP', 'SQL', 'JavaScript', 'MySQL', 'Cloud Computing', 'E-commerce', 'Analítica de datos', 'SAP'];
+  $('#tools').innerHTML = TOOLS.map((t, i) => `<span class="tool" style="--c:${FEST[i % FEST.length]};--d:${(-i * .37).toFixed(2)}s">${t}</span>`).join('');
 
   /* ---------- banderines ---------- */
   const fsvg = $('#flagsSvg');
