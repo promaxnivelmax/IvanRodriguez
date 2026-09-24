@@ -418,6 +418,8 @@ body.ready .sunpic{animation:sunIn 1.4s var(--bounce) .5s forwards}
 .odo .strip{position:absolute;left:0;right:0;top:0;transition:transform 2.4s var(--bounce)}
 .odo .strip span{display:block;height:clamp(60px,10vw,100px);line-height:clamp(60px,10vw,100px);text-align:center;font-family:var(--display);font-size:clamp(30px,5vw,52px);color:var(--sun)}
 .visits .hint{color:var(--muted);font-size:14px}
+.vis-pill{border-color:rgba(255,194,26,.5)!important;color:var(--sun)}
+.vis-pill b{font-family:var(--display);font-size:17px;letter-spacing:.5px}
 
 /* ================= FOOTER: la ciudad ================= */
 footer{position:relative;margin-top:60px;background:linear-gradient(180deg,var(--night) 0%,#3a0f2a 55%,#5a1a1f 100%);overflow:hidden}
@@ -608,6 +610,7 @@ body.ready .wa a:nth-child(3){animation-delay:1.6s}
         <a class="pill" href="tel:3052319414">📞 305 231 9414</a>
         <a class="pill" href="tel:3052245939">📱 305 224 5939</a>
         <a class="pill" href="mailto:ivan.rodriguezbu@gmail.com">✉ ivan.rodriguezbu@gmail.com</a>
+        <a class="pill vis-pill" href="#odo">👀 <b id="visBadge">…</b> visitas</a>
       </div>
       <div class="cta rv" data-fx="up" style="--dl:1400ms">
         <a href="https://vacantes.ivanrodriguez.app" class="btn btn-sun mag">🔎 Buscador de Vacantes →</a>
@@ -1265,30 +1268,40 @@ body.ready .wa a:nth-child(3){animation-delay:1.6s}
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
   /* ---------- contador de visitas ---------- */
-  const odo = $('#odo');
+  const odo = $('#odo'), badge = $('#visBadge');
+  const fmt = n => Number(n).toLocaleString('es-CO');
   function renderOdo(n) {
     const s = String(n).padStart(6, '0');
     odo.innerHTML = [...s].map(() => `<div class="dg"><div class="strip">${[...'0123456789'].map(d => `<span>${d}</span>`).join('')}</div></div>`).join('');
     requestAnimationFrame(() => requestAnimationFrame(() => {
       $$('.strip', odo).forEach((st, i) => {
-        const h = st.firstElementChild.getBoundingClientRect().height;
         st.style.transitionDelay = i * 110 + 'ms';
-        st.style.transform = `translateY(${-h * +s[i]}px)`;
+        st.style.transform = `translateY(-${+s[i] * 10}%)`;
       });
     }));
   }
-  renderOdo(0);
-  let counted = false; try { counted = !!sessionStorage.getItem('visit-counted'); } catch (e) {}
   let visits = null, odoSeen = false;
-  fetch(`https://abacus.jasoncameron.dev/${counted ? 'get' : 'hit'}/ivanrodriguezprofile-vercel/visitas`)
-    .then(r => r.json()).then(d => {
-      visits = d.value;
-      try { sessionStorage.setItem('visit-counted', '1'); } catch (e) {}
-      if (odoSeen) renderOdo(visits);
-    }).catch(() => {});
+  function show(v) {
+    visits = v;
+    if (badge) badge.textContent = fmt(v);
+    if (odoSeen) renderOdo(v);
+  }
+  let cache = null; try { cache = localStorage.getItem('visitas-ult'); } catch (e) {}
+  renderOdo(0);
+  if (cache) show(+cache);
+  let counted = false; try { counted = !!sessionStorage.getItem('visit-counted'); } catch (e) {}
+  function load(tries) {
+    fetch(`https://abacus.jasoncameron.dev/${counted ? 'get' : 'hit'}/ivanrodriguezprofile-vercel/visitas`, { cache: 'no-store' })
+      .then(r => r.json()).then(d => {
+        if (typeof d.value !== 'number') throw 0;
+        try { sessionStorage.setItem('visit-counted', '1'); localStorage.setItem('visitas-ult', d.value); } catch (e) {}
+        counted = true; show(d.value);
+      }).catch(() => { if (tries > 0) setTimeout(() => load(tries - 1), 1500); });
+  }
+  load(3);
   new IntersectionObserver((en, o) => {
-    if (en[0].isIntersecting) { odoSeen = true; if (visits !== null) renderOdo(visits); o.disconnect(); }
-  }, { threshold: .5 }).observe(odo);
+    if (en[0].isIntersecting) { odoSeen = true; setTimeout(() => { if (visits !== null) renderOdo(visits); }, 700); o.disconnect(); }
+  }, { threshold: .3 }).observe(odo);
 })();
 </script>
 <a class="fab-vac" id="fabVac" href="https://vacantes.ivanrodriguez.app">🔎 Buscador de Vacantes</a>
