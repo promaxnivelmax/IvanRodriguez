@@ -577,13 +577,13 @@ body.ready .wa a:nth-child(3){animation-delay:1.6s}
 
 <nav class="nav" id="nav">
   <a href="#inicio" class="mini-sun" aria-label="Inicio">IR</a>
+  <a href="https://vacantes.ivanrodriguez.app" class="nav-vac">🔎 Buscador de Vacantes</a>
   <a href="#perfil">Perfil</a>
   <a href="#habilidades">Habilidades</a>
   <a href="#trayectoria">Experiencia</a>
   <a href="#estudios">Estudios</a>
   <a href="#cursos">Cursos</a>
   <a href="#contacto">Contacto</a>
-  <a href="https://vacantes.ivanrodriguez.app" class="nav-vac">🔎 Buscador de Vacantes</a>
 </nav>
 
 <!-- ================= HERO ================= -->
@@ -1292,6 +1292,6 @@ body.ready .wa a:nth-child(3){animation-delay:1.6s}
 })();
 </script>
 <a class="fab-vac" id="fabVac" href="https://vacantes.ivanrodriguez.app">🔎 Buscador de Vacantes</a>
-<script>(function(){var f=document.getElementById("fabVac");function t(){f.classList.toggle("show",scrollY>innerHeight*.6)}addEventListener("scroll",t,{passive:true});t();})();</script>
+<script>(function(){var f=document.getElementById("fabVac");function t(){f.classList.toggle("show",innerWidth<=760||scrollY>innerHeight*.6)}addEventListener("scroll",t,{passive:true});addEventListener("resize",t);t();})();</script>
 </body>
 </html>
