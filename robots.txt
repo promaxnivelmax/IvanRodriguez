@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /buscador/admin.html
+Disallow: /api/
+
+Sitemap: https://ivanrodriguez.app/sitemap.xml
