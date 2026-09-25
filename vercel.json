@@ -1,0 +1,28 @@
+{
+  "rewrites": [
+    {
+      "source": "/buscador",
+      "destination": "https://buscador-vacantes.vercel.app/buscador/"
+    },
+    {
+      "source": "/buscador/:path*",
+      "destination": "https://buscador-vacantes.vercel.app/buscador/:path*"
+    },
+    {
+      "source": "/vacantes",
+      "destination": "https://buscador-vacantes.vercel.app/vacantes"
+    },
+    {
+      "source": "/vacante/:c",
+      "destination": "https://buscador-vacantes.vercel.app/vacante/:c"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "https://buscador-vacantes.vercel.app/api/:path*"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "https://buscador-vacantes.vercel.app/sitemap.xml"
+    }
+  ]
+}
