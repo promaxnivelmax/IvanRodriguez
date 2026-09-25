@@ -494,13 +494,6 @@ body.ready .wa a:nth-child(3){animation-delay:1.6s}
 </style>
 <style>
 .nav-vac{background:var(--sun);color:#120a1f!important;border-radius:999px;font-weight:800;white-space:nowrap}
-.fab-vac{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;padding:14px 20px;border-radius:999px;background:linear-gradient(135deg,#ff7a1a,#ffc21a);color:#120a1f;font-family:var(--display);font-size:1.05rem;text-decoration:none;box-shadow:0 10px 30px rgba(255,122,26,.45);opacity:0;transform:translateY(40px) scale(.6);pointer-events:none;transition:opacity .5s,transform .6s var(--bounce)}
-.fab-vac.show{opacity:1;transform:none;pointer-events:auto;animation:fabPulse 2.6s ease-in-out 1s infinite}
-.fab-vac.show:hover{transform:translateY(-3px) scale(1.04)}
-@media (max-width:760px){.fab-vac{bottom:96px;left:12px;padding:12px 16px;font-size:.95rem}}
-@keyframes fabIn{from{opacity:0;transform:translateY(40px) scale(.6)}}
-@keyframes fabPulse{50%{box-shadow:0 10px 30px rgba(255,122,26,.45),0 0 0 12px rgba(255,194,26,.18)}}
-@media (prefers-reduced-motion:reduce){.fab-vac{animation:none}}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6652198146951507"
      crossorigin="anonymous"></script>
@@ -579,7 +572,7 @@ body.ready .wa a:nth-child(3){animation-delay:1.6s}
 
 <nav class="nav" id="nav">
   <a href="#inicio" class="mini-sun" aria-label="Inicio">IR</a>
-  <a href="https://vacantes.ivanrodriguez.app" class="nav-vac">🔎 Buscador de Vacantes</a>
+  <a href="/buscador/" class="nav-vac">🔎 Buscador de Vacantes</a>
   <a href="#perfil">Perfil</a>
   <a href="#habilidades">Habilidades</a>
   <a href="#trayectoria">Experiencia</a>
@@ -613,7 +606,7 @@ body.ready .wa a:nth-child(3){animation-delay:1.6s}
         <a class="pill vis-pill" href="#odo">👀 <b id="visBadge">…</b> visitas</a>
       </div>
       <div class="cta rv" data-fx="up" style="--dl:1400ms">
-        <a href="https://vacantes.ivanrodriguez.app" class="btn btn-sun mag">🔎 Buscador de Vacantes →</a>
+        <a href="/buscador/" class="btn btn-sun mag">🔎 Buscador de Vacantes →</a>
         <a href="#contacto" class="btn btn-line mag">¡Hablemos!</a>
         <a href="#trayectoria" class="btn btn-line mag">Ver mi experiencia</a>
       </div>
@@ -1304,7 +1297,5 @@ body.ready .wa a:nth-child(3){animation-delay:1.6s}
   }, { threshold: .3 }).observe(odo);
 })();
 </script>
-<a class="fab-vac" id="fabVac" href="https://vacantes.ivanrodriguez.app">🔎 Buscador de Vacantes</a>
-<script>(function(){var f=document.getElementById("fabVac");function t(){f.classList.toggle("show",innerWidth<=760||scrollY>innerHeight*.6)}addEventListener("scroll",t,{passive:true});addEventListener("resize",t);t();})();</script>
 </body>
 </html>
