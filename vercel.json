@@ -2,11 +2,15 @@
   "rewrites": [
     {
       "source": "/buscador",
-      "destination": "https://buscador-vacantes.vercel.app/buscador/"
+      "destination": "https://buscador-vacantes.vercel.app/buscador/index.html"
     },
     {
-      "source": "/buscador/:path*",
-      "destination": "https://buscador-vacantes.vercel.app/buscador/:path*"
+      "source": "/buscador/",
+      "destination": "https://buscador-vacantes.vercel.app/buscador/index.html"
+    },
+    {
+      "source": "/buscador/:path+",
+      "destination": "https://buscador-vacantes.vercel.app/buscador/:path+"
     },
     {
       "source": "/vacantes",
