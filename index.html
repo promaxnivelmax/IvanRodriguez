@@ -263,7 +263,7 @@ body.ready .sunpic{animation:sunIn 1.4s var(--bounce) .5s forwards}
 .thermo:hover{transform:translateY(-8px) rotate(-1.5deg)}
 .tube{position:relative;width:34px;height:230px;border-radius:20px;background:rgba(255,255,255,.07);border:3px solid rgba(255,241,214,.35)}
 .tube .fill{position:absolute;left:5px;right:5px;bottom:-18px;height:0;border-radius:14px;background:linear-gradient(to top,var(--red),var(--orange) 60%,var(--sun));transition:height 2s var(--bounce)}
-.thermos.in .fill{height:calc(var(--v) * 1% + 18px)}
+.thermos.in .fill{height:calc((100% - 8px) * var(--v) / 100 + 18px)}
 .tube .ticks{position:absolute;right:-14px;top:14px;bottom:14px;width:10px;background:repeating-linear-gradient(to bottom,rgba(255,241,214,.4) 0 2px,transparent 2px 20px)}
 .bulb{width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ff6b7d,var(--red));border:3px solid rgba(255,241,214,.35);margin-top:-22px;position:relative;z-index:2;box-shadow:0 0 24px rgba(227,38,63,.6);animation:bulb 2s ease-in-out infinite}
 @keyframes bulb{50%{box-shadow:0 0 40px rgba(255,122,26,.8)}}
@@ -710,13 +710,21 @@ body.ready .wa a:nth-child(3){animation-delay:1.6s}
       <div class="job rv" data-fx="left">
         <div class="hcard">
           <span class="new">¡Lo más reciente!</span>
+          <span class="when">30 ene 2026 — 01 abr 2026</span>
+          <h3>Gestor II · Servicio al Ciudadano</h3>
+          <span class="org">Outsourcing S.A.S. BIC · Unidad para las Víctimas · Contrato fijo</span>
+          <p>Atención presencial y orientación a la ciudadanía en los trámites, servicios y rutas de atención de la Unidad para las Víctimas, dentro del equipo de Territorio – Servicio al Ciudadano.</p>
+        </div>
+      </div>
+      <div class="job rv" data-fx="right">
+        <div class="hcard">
           <span class="when">05 may 2023 — 05 nov 2023</span>
           <h3>Tecnólogo en Producción Multimedia</h3>
           <span class="org">Trámites y Servicios Laura · Etapa productiva SENA</span>
           <p>Encuestas y entrevistas de satisfacción a clientes para proponer mejoras, creación de contenido para Instagram y Facebook, elaboración de informes y edición de video para la promoción de servicios.</p>
         </div>
       </div>
-      <div class="job rv" data-fx="right">
+      <div class="job rv" data-fx="left">
         <div class="hcard">
           <span class="when">06 dic 2022 — 05 ene 2023</span>
           <h3>Auxiliar Administrativo</h3>
@@ -724,7 +732,7 @@ body.ready .wa a:nth-child(3){animation-delay:1.6s}
           <p>Prestación de servicios de apoyo a la gestión en los procesos administrativos del Centro de Convivencia Ciudadana, adscrito a la Secretaría del Interior.</p>
         </div>
       </div>
-      <div class="job rv" data-fx="left">
+      <div class="job rv" data-fx="right">
         <div class="hcard">
           <span class="when">27 sep 2022 — 26 dic 2022</span>
           <h3>Apoyo Logístico</h3>
@@ -732,7 +740,7 @@ body.ready .wa a:nth-child(3){animation-delay:1.6s}
           <p>Apoyo a la gestión con acompañamiento logístico en los diferentes eventos deportivos y recreativos del instituto, en el proyecto de fomento y desarrollo deportivo del Distrito.</p>
         </div>
       </div>
-      <div class="job rv" data-fx="right">
+      <div class="job rv" data-fx="left">
         <div class="hcard">
           <span class="when">24 nov 2016 — 18 jul 2018</span>
           <h3>Asistente Administrativo</h3>
@@ -842,11 +850,11 @@ body.ready .wa a:nth-child(3){animation-delay:1.6s}
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 7-10 6L2 7"/></svg></span>
         <div><div class="k">Correo</div><div class="v">ivan.rodriguezbu@gmail.com</div></div>
       </a>
-      <a class="hcard c-item rv" data-fx="up" style="--c:#25d366" href="https://wa.me/573052319414?text=Hola%20Iv%C3%A1n,%20vengo%20de%20tu%20hoja%20de%20vida%20web" target="_blank" rel="noopener">
+      <a class="hcard c-item rv" data-fx="up" style="--c:#25d366" href="https://wa.me/573052319414?text=%C2%A1Quiubo%2C%20Iv%C3%A1n!%20%F0%9F%91%8B%E2%98%80%EF%B8%8F%20Vi%20tu%20hoja%20de%20vida%20web%20y%20quiero%20hablar%20contigo." target="_blank" rel="noopener">
         <span class="ic"><svg><use href="#waIcon"/></svg></span>
         <div><div class="k">WhatsApp · La 52</div><div class="v">305 231 9414</div></div>
       </a>
-      <a class="hcard c-item rv" data-fx="up" style="--c:var(--teal)" href="https://wa.me/573123377832?text=Hola%20Iv%C3%A1n,%20vengo%20de%20tu%20hoja%20de%20vida%20web" target="_blank" rel="noopener">
+      <a class="hcard c-item rv" data-fx="up" style="--c:var(--teal)" href="https://wa.me/573123377832?text=%C2%A1Quiubo%2C%20Iv%C3%A1n!%20%F0%9F%91%8B%E2%98%80%EF%B8%8F%20Vi%20tu%20hoja%20de%20vida%20web%20y%20quiero%20hablar%20contigo." target="_blank" rel="noopener">
         <span class="ic"><svg><use href="#waIcon"/></svg></span>
         <div><div class="k">WhatsApp · Laura</div><div class="v">312 337 7832</div></div>
       </a>
@@ -863,7 +871,7 @@ body.ready .wa a:nth-child(3){animation-delay:1.6s}
             <p>📍 Barrancabermeja, Santander</p>
             <p>🕗 Lunes a sábado 8:00 a. m. – 7:00 p. m. · Domingo 9:00 a. m. – 6:00 p. m.</p>
             <p>📞 305 231 9414</p>
-            <div class="btns"><a href="https://www.google.com/maps/search/?api=1&amp;query=Internet%20la%2052&amp;query_place_id=ChIJLf36nBjtQo4Rcq_8l4xP5CM" target="_blank" rel="noopener">Cómo llegar →</a><a class="alt" href="https://wa.me/573052319414?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20web%20de%20Iv%C3%A1n" target="_blank" rel="noopener">WhatsApp</a></div>
+            <div class="btns"><a href="https://www.google.com/maps/search/?api=1&amp;query=Internet%20la%2052&amp;query_place_id=ChIJLf36nBjtQo4Rcq_8l4xP5CM" target="_blank" rel="noopener">Cómo llegar →</a><a class="alt" href="https://wa.me/573052319414?text=%C2%A1Buenas!%20%F0%9F%91%8B%20Vengo%20de%20la%20p%C3%A1gina%20de%20Iv%C3%A1n%20y%20quiero%20informaci%C3%B3n%20de%20Internet%20La%2052.%20%F0%9F%96%A8%EF%B8%8F" target="_blank" rel="noopener">WhatsApp</a></div>
           </div>
         </div>
         <div class="hcard loc rv" data-fx="right" style="--c:var(--pink)">
@@ -873,7 +881,7 @@ body.ready .wa a:nth-child(3){animation-delay:1.6s}
             <p>📍 Calle 51 # 5-15, Barrancabermeja, Santander</p>
             <p>🕗 Lunes a viernes 8:00 a. m. – 5:00 p. m.</p>
             <p>📞 305 224 5939</p>
-            <div class="btns"><a href="https://www.google.com/maps/search/?api=1&amp;query=Tr%C3%A1mites%20y%20servicios%20Laura&amp;query_place_id=ChIJc8a9s3btQo4RxqKUxSuKU98" target="_blank" rel="noopener">Cómo llegar →</a><a class="alt" href="https://wa.me/573052245939?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20web%20de%20Iv%C3%A1n" target="_blank" rel="noopener">WhatsApp</a></div>
+            <div class="btns"><a href="https://www.google.com/maps/search/?api=1&amp;query=Tr%C3%A1mites%20y%20servicios%20Laura&amp;query_place_id=ChIJc8a9s3btQo4RxqKUxSuKU98" target="_blank" rel="noopener">Cómo llegar →</a><a class="alt" href="https://wa.me/573052245939?text=%C2%A1Buenas!%20%F0%9F%91%8B%20Vengo%20de%20la%20p%C3%A1gina%20de%20Iv%C3%A1n%20y%20quiero%20informaci%C3%B3n%20de%20Tr%C3%A1mites%20y%20Servicios%20Laura.%20%F0%9F%93%84" target="_blank" rel="noopener">WhatsApp</a></div>
           </div>
         </div>
       </div>
@@ -975,9 +983,9 @@ body.ready .wa a:nth-child(3){animation-delay:1.6s}
 </footer>
 
 <div class="wa">
-  <a href="https://wa.me/573052319414?text=Hola%20Iv%C3%A1n,%20vengo%20de%20tu%20hoja%20de%20vida%20web" target="_blank" rel="noopener" aria-label="WhatsApp 305 231 9414"><span class="t">305 231 9414</span><svg><use href="#waIcon"/></svg></a>
-  <a href="https://wa.me/573123377832?text=Hola%20Iv%C3%A1n,%20vengo%20de%20tu%20hoja%20de%20vida%20web" target="_blank" rel="noopener" aria-label="WhatsApp 312 337 7832" style="background:var(--teal);box-shadow:0 6px 0 #0c6b67,0 10px 30px rgba(0,0,0,.35)"><span class="t">312 337 7832</span><svg><use href="#waIcon"/></svg></a>
-  <a href="https://wa.me/573052245939?text=Hola%20Iv%C3%A1n,%20vengo%20de%20tu%20hoja%20de%20vida%20web" target="_blank" rel="noopener" aria-label="WhatsApp 305 224 5939" style="background:var(--orange);box-shadow:0 6px 0 #b3520a,0 10px 30px rgba(0,0,0,.35)"><span class="t">305 224 5939</span><svg><use href="#waIcon"/></svg></a>
+  <a href="https://wa.me/573052319414?text=%C2%A1Quiubo%2C%20Iv%C3%A1n!%20%F0%9F%91%8B%E2%98%80%EF%B8%8F%20Vi%20tu%20hoja%20de%20vida%20web%20y%20quiero%20hablar%20contigo." target="_blank" rel="noopener" aria-label="WhatsApp 305 231 9414"><span class="t">305 231 9414</span><svg><use href="#waIcon"/></svg></a>
+  <a href="https://wa.me/573123377832?text=%C2%A1Quiubo%2C%20Iv%C3%A1n!%20%F0%9F%91%8B%E2%98%80%EF%B8%8F%20Vi%20tu%20hoja%20de%20vida%20web%20y%20quiero%20hablar%20contigo." target="_blank" rel="noopener" aria-label="WhatsApp 312 337 7832" style="background:var(--teal);box-shadow:0 6px 0 #0c6b67,0 10px 30px rgba(0,0,0,.35)"><span class="t">312 337 7832</span><svg><use href="#waIcon"/></svg></a>
+  <a href="https://wa.me/573052245939?text=%C2%A1Quiubo%2C%20Iv%C3%A1n!%20%F0%9F%91%8B%E2%98%80%EF%B8%8F%20Vi%20tu%20hoja%20de%20vida%20web%20y%20quiero%20hablar%20contigo." target="_blank" rel="noopener" aria-label="WhatsApp 305 224 5939" style="background:var(--orange);box-shadow:0 6px 0 #b3520a,0 10px 30px rgba(0,0,0,.35)"><span class="t">305 224 5939</span><svg><use href="#waIcon"/></svg></a>
 </div>
 
 <script>
