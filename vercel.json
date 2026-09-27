@@ -1,5 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/buscador/",
+      "permanent": false
+    }
+  ],
   "rewrites": [
+    {
+      "source": "/cv",
+      "destination": "/index.html"
+    },
     {
       "source": "/buscador",
       "destination": "https://buscador-vacantes.vercel.app/buscador/index.html"
